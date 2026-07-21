@@ -1,6 +1,10 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+
+// Base path for the deployed site. Empty for local dev/preview; set to '/the-measure'
+// by the GitHub Pages workflow (BASE_PATH env) so links resolve under the project subpath.
+const base = process.env.BASE_PATH ?? '';
 
 export default defineConfig({
 	plugins: [
@@ -11,10 +15,12 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 
-			// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-			// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-			// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-			adapter: adapter()
+			// KitConfig options are passed at the top level here (this project configures SvelteKit
+			// inline via the Vite plugin instead of svelte.config.js).
+			// Static build for GitHub Pages. `fallback` provides an SPA shell (named 404.html so
+			// GitHub Pages serves it for any non-prerendered/deep-link path) that client-routes.
+			adapter: adapter({ fallback: '404.html' }),
+			paths: { base }
 		})
 	]
 });

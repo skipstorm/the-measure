@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { QUANTITIES } from '$lib/data';
 	import QuantityIcon from '$lib/components/QuantityIcon.svelte';
 
@@ -33,7 +34,7 @@
 		<div class="grid">
 			{#each QUANTITIES as q (q.id)}
 				{#if q.active}
-					<a class="tile" href="/{q.id}">
+					<a class="tile" href="{base}/{q.id}">
 						<div class="tile-icon"><QuantityIcon id={q.id} size={30} /></div>
 						<div class="tile-name">{q.name}</div>
 						<div class="tile-base">Measured in {q.base}</div>
@@ -54,7 +55,7 @@
 		<div class="grid list-grid">
 			{#each QUANTITIES as q, i (q.id)}
 				{#if q.active}
-					<a class="list-card" href="/{q.id}">
+					<a class="list-card" href="{base}/{q.id}">
 						<span class="list-num">{String(i + 1).padStart(2, '0')}</span>
 						<div class="list-icon"><QuantityIcon id={q.id} size={22} /></div>
 						<div class="list-mid">

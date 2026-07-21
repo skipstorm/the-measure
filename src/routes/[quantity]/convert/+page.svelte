@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { UNITS, CATEGORY_LABELS, unitByName, toBase, fromBase, type Category } from '$lib/data';
 	import { fmt } from '$lib/format';
 	import { applyKey } from '$lib/keypad-logic';
@@ -81,7 +82,7 @@
 		{/each}
 	</div>
 {:else}
-	<PageHeader backLabel={q.name} backHref="/{q.id}" rightText="Direct Conversion" />
+	<PageHeader backLabel={q.name} backHref="{base}/{q.id}" rightText="Direct Conversion" />
 
 	<div class="page">
 		<div class="switcher">

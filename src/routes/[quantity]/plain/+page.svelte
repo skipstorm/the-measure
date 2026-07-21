@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { UNITS, fromBase } from '$lib/data';
 	import { fmt } from '$lib/format';
 	import { readabilityScore } from '$lib/numeric-display';
@@ -49,7 +50,7 @@
 
 	function goDirect(unitName: string) {
 		const params = new URLSearchParams({ to: unitName, value });
-		goto(`/${q.id}/convert?${params.toString()}`);
+		goto(`${base}/${q.id}/convert?${params.toString()}`);
 	}
 </script>
 
@@ -57,7 +58,7 @@
 	<title>In Plain Terms — {q.name} — The Measure</title>
 </svelte:head>
 
-<PageHeader backLabel={q.name} backHref="/{q.id}" rightText="In Plain Terms" />
+<PageHeader backLabel={q.name} backHref="{base}/{q.id}" rightText="In Plain Terms" />
 
 <div class="page">
 	<div class="eyebrow"><span>Section I — {q.name}</span></div>

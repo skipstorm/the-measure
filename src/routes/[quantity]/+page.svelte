@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import QuantityIcon from '$lib/components/QuantityIcon.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 
@@ -10,7 +11,7 @@
 	<title>{q.name} — The Measure</title>
 </svelte:head>
 
-<PageHeader backLabel="Front Page" backHref="/" rightText={q.name} />
+<PageHeader backLabel="Front Page" backHref="{base}/" rightText={q.name} />
 
 <div class="page">
 	<div class="head">
@@ -21,7 +22,7 @@
 	<div class="blurb">{q.blurb}</div>
 
 	<div class="cards">
-		<a class="card" href="/{q.id}/plain">
+		<a class="card" href="{base}/{q.id}/plain">
 			<div class="section-label">Section I</div>
 			<div class="card-title">In Plain Terms</div>
 			<div class="card-body">
@@ -30,7 +31,7 @@
 			</div>
 			<div class="card-cta">Enter →</div>
 		</a>
-		<a class="card" href="/{q.id}/convert">
+		<a class="card" href="{base}/{q.id}/convert">
 			<div class="section-label">Section II</div>
 			<div class="card-title">Direct Conversion</div>
 			<div class="card-body">
