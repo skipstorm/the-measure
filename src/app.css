@@ -1,0 +1,81 @@
+:root {
+	--paper-0: #f4f1e8;
+	--paper-1: #faf8f1;
+	--paper-2: #fffdf7;
+	--ink: #1b1712;
+	--red: #9e2b25;
+	--red-dark: #7a1f1a;
+	--gray-1: #6b6355;
+	--gray-2: #4a453b;
+	--gray-3: #9c937f;
+	--gray-4: #8a8271;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--paper-0);
+	color: var(--ink);
+	font-family: 'Libre Baskerville', Georgia, serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+a {
+	color: var(--red);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--red-dark);
+}
+
+button {
+	font-family: inherit;
+}
+
+::selection {
+	background: var(--red);
+	color: var(--paper-0);
+}
+
+@keyframes pageIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes tick {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
